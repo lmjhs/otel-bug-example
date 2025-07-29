@@ -10,6 +10,8 @@ jobs:
   test-bug:
     runs-on: ubuntu-latest
     container: php:8.3-cli
+    env:
+      OTEL_PHP_AUTOLOAD_ENABLED: true
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -18,8 +20,6 @@ jobs:
           apt-get update
           apt-get -y install zip git
       - name: Install Composer
-        run: |
-          curl -sS https://getcomposer.org/installer | php
-          php composer.phar install
+        run: curl -sS https://getcomposer.org/installer | php
       - name: Composer Install
-        run: composer install
+        run: php composer.phar install
