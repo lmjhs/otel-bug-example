@@ -1,0 +1,25 @@
+{
+    "name": "lmjhs/otel-bug-example",
+    "description": "Otel Bug Example",
+    "require": {
+        "psr/log": "^3.0",
+        "open-telemetry/api": "^1.0",
+        "open-telemetry/sdk": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+    "scripts": {
+        "post-autoload-dump": [
+            "App\\ComposerScripts::postAutoloadDump"
+        ]
+    },
+    "config": {
+        "allow-plugins": {
+            "php-http/discovery": false,
+            "tbachert/spi": false
+        }
+    }
+}

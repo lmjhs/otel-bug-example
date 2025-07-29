@@ -1,0 +1,21 @@
+name: Test
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test-bug:
+    runs-on: ubuntu-latest
+    container: php:8.3-cli
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install Composer
+        run: |
+          curl -sS https://getcomposer.org/installer | php
+          php composer.phar install
+      - name: Composer Install
+        run: composer install

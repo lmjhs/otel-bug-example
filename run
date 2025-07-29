@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+docker build -t otel-bug-example \
+    .
+
+docker run --rm -it \
+    --env=OTEL_PHP_AUTOLOAD_ENABLED=true \
+    otel-bug-example \
+    "${@:1}"
