@@ -16,7 +16,7 @@ jobs:
       - name: Install dependencies
         run: |
           apt-get update
-          apt-get install zip git
+          apt-get -y install zip git
       - name: Install Composer
         run: |
           curl -sS https://getcomposer.org/installer | php
